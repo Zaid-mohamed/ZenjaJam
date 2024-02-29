@@ -11,11 +11,8 @@ size = Vector2(100, 125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvyxn"]
 size = Vector2(102, 130)
 
-[node name="KindGuest" type="CharacterBody2D" node_paths=PackedStringArray("HitBox", "StaringTimer")]
+[node name="KindGuest" type="CharacterBody2D"]
 script = ExtResource("1_27pqw")
-HitBox = NodePath("HitBox")
-StaringTimer = NodePath("StaringTimer")
-Speed = 500.0
 
 [node name="Shape" type="MeshInstance2D" parent="."]
 position = Vector2(0, -78)

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Guest
+class_name BaseGuest
 # Getting the Crystal Node
 @onready var Crystal : StaticBody2D = get_tree().get_first_node_in_group("Crystal")
 @export_group("Children")
@@ -25,6 +25,7 @@ enum types {
 }
 
 func _ready():
+	print(HitBox)
 	HitBox.area_entered.connect(_area_enetered)
 	StaringTimer.timeout.connect(leave)
 func _physics_process(delta):

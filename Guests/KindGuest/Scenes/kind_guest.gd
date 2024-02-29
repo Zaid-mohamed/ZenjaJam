@@ -1,13 +1,9 @@
-extends Guest
-
-class_name KindGuest
-
-
-
+extends BaseGuest
 
 
 
 func _ready():
+	print(HitBox)
 	HitBox.area_entered.connect(_area_enetered)
 	StaringTimer.timeout.connect(leave)
 func _physics_process(delta):
