@@ -15,10 +15,6 @@ run/main_scene="res://PlayGround/Scenes/test_realm.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-BaseGuest="*res://Guests/KindGuest/BaseGuest.gd"
-
 [display]
 
 window/size/viewport_width=1920
