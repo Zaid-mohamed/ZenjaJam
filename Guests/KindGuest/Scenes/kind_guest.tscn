@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://crmanh0dsd8mp"]
 
-[ext_resource type="Script" path="res://Guests/KindGuest/Scripts/Guest.gd" id="1_072s2"]
+[ext_resource type="Script" path="res://Guests/KindGuest/Scenes/kind_guest.gd" id="1_27pqw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7fsn0"]
 size = Vector3(100, 250, 1)
@@ -11,18 +11,22 @@ size = Vector2(100, 125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvyxn"]
 size = Vector2(102, 130)
 
-[node name="KindGuest" type="CharacterBody2D"]
-script = ExtResource("1_072s2")
-Speed = 200.0
+[node name="KindGuest" type="CharacterBody2D" node_paths=PackedStringArray("HitBox", "StaringTimer")]
+script = ExtResource("1_27pqw")
+HitBox = NodePath("HitBox")
+StaringTimer = NodePath("StaringTimer")
+Speed = 500.0
 
 [node name="Shape" type="MeshInstance2D" parent="."]
+position = Vector2(0, -78)
 mesh = SubResource("BoxMesh_7fsn0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 62.5)
+position = Vector2(0, -15.5)
 shape = SubResource("RectangleShape2D_voafe")
 
 [node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0, -78)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 63)
