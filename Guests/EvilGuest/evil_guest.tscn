@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://crmanh0dsd8mp"]
+[gd_scene load_steps=4 format=3 uid="uid://cly4t0x2qef7x"]
 
-[ext_resource type="Script" path="res://Guests/EvilGuest/kind_guest.gd" id="1_27pqw"]
-[ext_resource type="Texture2D" uid="uid://bc585t0hjmh2l" path="res://Guests/KindGuest/Images/BlueGuest.png" id="2_jowb8"]
+[ext_resource type="Texture2D" uid="uid://bc585t0hjmh2l" path="res://Guests/KindGuest/Images/BlueGuest.png" id="2_wpgyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_voafe"]
 size = Vector2(100, 109)
@@ -9,12 +8,11 @@ size = Vector2(100, 109)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvyxn"]
 size = Vector2(102, 113)
 
-[node name="KindGuest" type="CharacterBody2D"]
-script = ExtResource("1_27pqw")
+[node name="EvilGuest" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, -78)
-texture = ExtResource("2_jowb8")
+texture = ExtResource("2_wpgyj")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

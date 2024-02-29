@@ -16,6 +16,7 @@ enum states {
 	StaringAtCrystal,
 	LeavingThePlace
 }
+# types of all guests
 enum types {
 	Kind,
 	Evil,
@@ -24,7 +25,7 @@ enum types {
 	EvilToKind,
 	EvilToKindToEvil
 }
-
+# settters
 func set_state(value):
 	state = value
 func set_type(value : types):
