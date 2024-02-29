@@ -7,10 +7,10 @@
 y_sort_enabled = true
 
 [node name="Crystal" parent="." instance=ExtResource("1_ijmp1")]
-position = Vector2(952, 432)
+position = Vector2(169, 382)
 
 [node name="KindGuest" parent="." instance=ExtResource("2_506o0")]
-position = Vector2(1529, -100)
+position = Vector2(1002, 305)
 
 [node name="LeavingPoint" type="Marker2D" parent="."]
-position = Vector2(1257, 1678)
+position = Vector2(660, 1076)
