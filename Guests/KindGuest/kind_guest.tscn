@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://kbf6e13wr5jh"]
+
+[ext_resource type="Texture2D" uid="uid://chtndky7h0vde" path="res://icon.svg" id="1_g878j"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g878j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
