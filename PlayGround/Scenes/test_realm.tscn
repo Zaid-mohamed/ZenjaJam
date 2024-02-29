@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cshepflevjutu"]
+
+[ext_resource type="PackedScene" uid="uid://b6ukihqeb8e2m" path="res://Crystal/Scenes/crystal.tscn" id="1_ijmp1"]
+[ext_resource type="PackedScene" uid="uid://crmanh0dsd8mp" path="res://Guests/KindGuest/Scenes/kind_guest.tscn" id="2_506o0"]
+
+[node name="TestRealm" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Crystal" parent="." instance=ExtResource("1_ijmp1")]
+position = Vector2(169, 382)
+
+[node name="KindGuest" parent="." instance=ExtResource("2_506o0")]
+position = Vector2(1002, 305)
+
+[node name="LeavingPoint" type="Marker2D" parent="."]
+position = Vector2(660, 1076)
