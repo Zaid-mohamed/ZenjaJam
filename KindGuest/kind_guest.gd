@@ -1,24 +1,31 @@
 extends CharacterBody2D
 
 
+
+class_name Guest
+
+
 @export var Speed : float = 200.0
+
 @export var StaringTime : float 
 
 @onready var crysalPos : Vector2 = get_tree().get_first_node_in_group("crystal").global_position
+
 @onready var crystal : crystal = get_tree().get_first_node_in_group("crystal")
 
 @onready var Exits  = get_tree().get_nodes_in_group("Exit")
 
-@onready var NavAgent : NavigationAgent2D
+@export var NavAgent : NavigationAgent2D
 
 var NavTarget : Node2D
-@onready var NavTimer : Timer = get_node("NavTimer")
 
-@onready var HitBox : Area2D = get_node("HitBox")
+@export var NavTimer : Timer
 
-@onready var StaringTimer : Timer = get_node("StaringTimer")
+@export var HitBox : Area2D
 
-var state : states = states.GoingToCrystal : set = set_state
+@export var StaringTimer : Timer
+
+@export var state : states = states.GoingToCrystal : set = set_state
 
 var is_stared : bool
 
