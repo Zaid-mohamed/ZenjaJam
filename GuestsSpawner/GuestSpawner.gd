@@ -18,6 +18,7 @@ var EvilGuestScene = preload("res://EvilGuest/evil_guest.tscn")
 
 
 func _ready():
+	randomize()
 	get_random_wait_time()
 	SpawnTimer.timeout.connect(SpawnTimerTimeout)
 	SpawnTimer.start()

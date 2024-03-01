@@ -35,3 +35,6 @@ offset_left = -16.0
 offset_top = -389.0
 offset_right = 24.0
 offset_bottom = -366.0
+
+[node name="NavObs" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-60, -35, 60, -34, 61, 61, -60, 61)

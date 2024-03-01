@@ -9,13 +9,18 @@ extends CharacterBody2D
 
 @onready var Exits  = get_tree().get_nodes_in_group("Exit")
 
+@onready var NavAgent : NavigationAgent2D
+
 @onready var HitBox : Area2D = get_node("HitBox")
 
 @onready var StaringTimer : Timer = get_node("StaringTimer")
 
+@onready var NavTimer : Timer = get_node("NavTimer")
 var state : states = states.GoingToCrystal : set = set_state
 
 var is_stared : bool
+
+var NavTarget : Node2D
 
 var exit : Vector2
 enum states {
@@ -26,7 +31,12 @@ enum states {
 
 
 func _ready():
-	$Type.text ="im kind"
+	# settings up the navigation
+	NavAgent = $NavAgent
+	NavAgent.path_desired_distance = 4.0
+	NavAgent.target_desired_distance = 4.0
+	NavTarget = crystal
+	actor_setup()
 	#get an exit
 	exit = get_an_exit()
 	# assign stare time to the wait time of staring timer
@@ -44,6 +54,17 @@ func _physics_process(delta):
 			staring()
 		states.Leaving:
 			move_to(exit, true)
+
+	
+	if NavAgent.is_navigation_finished():
+		return
+	var next_path_position: Vector2 = NavAgent.get_next_path_position()
+	var new_velocity = next_path_position - global_position
+	
+	new_velocity = new_velocity.normalized()
+	new_velocity = new_velocity * Speed
+	velocity = new_velocity
+
 	move_and_slide()
 
 
@@ -54,11 +75,7 @@ func _physics_process(delta):
 
 # move to a point, it can be a normal point or an exit
 func move_to(point: Vector2, is_leaving : bool = false):
-	var direction : Vector2 = point - global_position
-	
-	direction = direction.normalized() * Speed
-	
-	velocity = direction
+	set_movement_target(point)
 	
 	if is_leaving:
 		var DistanceFromExit = sqrt(pow(point.y - global_position.y, 2) + pow(point.x - global_position.x, 2))
@@ -104,3 +121,16 @@ func entered_an_area(area):
 func staring_finished():
 	state = states.Leaving
 	
+
+
+# navigation purposses
+
+
+
+func actor_setup():
+	await get_tree().physics_frame
+
+	set_movement_target(NavTarget.position)
+	NavTimer.start()
+func set_movement_target(target_position : Vector2):
+	NavAgent.target_position = target_position

@@ -31,6 +31,14 @@ shape = SubResource("RectangleShape2D_aopf6")
 
 [node name="StaringTimer" type="Timer" parent="."]
 
-[node name="Type" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="NavTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 212.02
+
+[node name="NavObs" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-60, -35, 60, -34, 61, 61, -60, 61)
+
+[connection signal="timeout" from="NavTimer" to="." method="actor_setup"]
