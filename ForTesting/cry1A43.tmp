@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5wxh7o4v1ph8"]
+
+[ext_resource type="Script" path="res://Crystal/crysal.gd" id="1_n1bfd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytjlf"]
+radius = 191.094
+
+[node name="crystal" type="Node2D" groups=["crystal"]]
+script = ExtResource("1_n1bfd")
+
+[node name="SafeZone" type="Area2D" parent="." groups=["safe_zone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeZone"]
+shape = SubResource("CircleShape2D_ytjlf")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="UI"]
+offset_top = 216.0
+offset_right = 54.0
+offset_bottom = 239.0
+text = "Hope : "

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7fs6w655ff1s"]
+
+[ext_resource type="Script" path="res://GuestsSpawner/GuestSpawner.gd" id="1_6nevp"]
+
+[node name="GuestSpawner" type="Node2D"]
+script = ExtResource("1_6nevp")
+max_wait_time = 10.0
+min_wait_time = 5.0
+
+[node name="SpawnTimer" type="Timer" parent="."]
