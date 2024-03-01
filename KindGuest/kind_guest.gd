@@ -11,16 +11,17 @@ extends CharacterBody2D
 
 @onready var NavAgent : NavigationAgent2D
 
+var NavTarget : Node2D
+@onready var NavTimer : Timer = get_node("NavTimer")
+
 @onready var HitBox : Area2D = get_node("HitBox")
 
 @onready var StaringTimer : Timer = get_node("StaringTimer")
 
-@onready var NavTimer : Timer = get_node("NavTimer")
 var state : states = states.GoingToCrystal : set = set_state
 
 var is_stared : bool
 
-var NavTarget : Node2D
 
 var exit : Vector2
 enum states {
@@ -63,10 +64,7 @@ func _physics_process(delta):
 	
 	new_velocity = new_velocity.normalized()
 	new_velocity = new_velocity * Speed
-	velocity = new_velocity
-	
-
-	move_and_slide()
+	NavAgent.set_velocity(new_velocity)
 
 #this is a Navigation purpose too
 func move(Velocity):

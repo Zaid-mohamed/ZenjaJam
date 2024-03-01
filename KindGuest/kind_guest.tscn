@@ -36,7 +36,9 @@ wait_time = 0.5
 
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
-radius = 200.0
+radius = 128.0
+neighbor_distance = 129.0
+max_speed = 200.0
 
 [node name="NavObs" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-61, -35, 61, -35, 60, 62, -61, 62)

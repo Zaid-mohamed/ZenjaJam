@@ -17,6 +17,11 @@ var state : states = states.GoingToCrystal : set = set_state
 
 var is_stared : bool
 
+@onready var NavAgent : NavigationAgent2D
+
+var NavTarget : Node2D
+@onready var NavTimer : Timer = get_node("NavTimer")
+
 var exit : Vector2
 enum states {
 	GoingToCrystal,
@@ -26,7 +31,18 @@ enum states {
 
 
 func _ready():
-	$Type.text = "im evil"
+	# settings up the navigation
+	NavAgent = $NavigationAgent2D
+	NavAgent.path_desired_distance = 4.0
+	NavAgent.target_desired_distance = 4.0
+	NavTarget = crystal
+	actor_setup()
+	#get an exit
+	exit = get_an_exit()
+	# assign stare time to the wait time of staring timer
+	StaringTimer.wait_time = StaringTime
+	
+
 	#get an exit
 	exit = get_an_exit()
 	# assign stare time to the wait time of staring timer
@@ -104,3 +120,10 @@ func entered_an_area(area):
 func staring_finished():
 	state = states.Leaving
 	
+func actor_setup():
+	await get_tree().physics_frame
+
+	set_movement_target(NavTarget.position)
+	NavTimer.start()
+func set_movement_target(target_position : Vector2):
+	NavAgent.target_position = target_position
