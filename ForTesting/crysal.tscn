@@ -21,6 +21,3 @@ offset_top = 216.0
 offset_right = 54.0
 offset_bottom = 239.0
 text = "Hope : "
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-vertices = PackedVector2Array(9, -165, 42, -148, 80, -119, 108, -81, 131, -34, 134, 2, 134, 29, 124, 52, 112, 75, 90, 106, 80, 117, 65, 132, 11, 166, -23, 142, -74, 139, -114, 86, -130, 34, -143, -31, -130, -63, -109, -109, -72, -123, -25, -148)

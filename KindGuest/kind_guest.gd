@@ -64,11 +64,14 @@ func _physics_process(delta):
 	new_velocity = new_velocity.normalized()
 	new_velocity = new_velocity * Speed
 	velocity = new_velocity
+	
 
 	move_and_slide()
 
-
-
+#this is a Navigation purpose too
+func move(Velocity):
+	velocity = Velocity
+	move_and_slide()
 
 
 
