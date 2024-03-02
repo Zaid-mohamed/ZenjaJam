@@ -7,8 +7,8 @@ class_name global
 
 
 func _ready():
-	add_to_group("global")
 	add_child(self)
+	add_to_group("global")
 func Open():
 	play("OpenUp")
 

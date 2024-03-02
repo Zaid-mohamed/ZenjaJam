@@ -5,13 +5,13 @@ extends Control
 
 func _on_play_pressed():
 	global.Close()
-	await get_tree().create_timer(50)
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://MainScene/main.tscn")
 
 
 func _on_credits_pressed():
 	global.Close()
-	await get_tree().create_timer(0.5)
+	await get_tree().create_timer(0.5).timeout
 	
 	get_tree().change_scene_to_file("res://Credits.tscn")
 
