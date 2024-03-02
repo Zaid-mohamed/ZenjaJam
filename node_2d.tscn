@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwinexcr26va4"]
+[gd_scene load_steps=5 format=3 uid="uid://bwinexcr26va4"]
 
 [ext_resource type="Texture2D" uid="uid://chtndky7h0vde" path="res://icon.svg" id="1_os0ht"]
+[ext_resource type="Script" path="res://Node2D.gd" id="2_ghn4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckup8"]
 size = Vector2(127, 126)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agcgw"]
+radius = 65.5271
 
 [node name="Node2D" type="CharacterBody2D"]
 position = Vector2(890, 500)
@@ -17,3 +21,13 @@ shape = SubResource("RectangleShape2D_ckup8")
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(1, 2)
 texture = ExtResource("1_os0ht")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_ghn4h")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+position = Vector2(-1.9908e-05, 1.54972e-06)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(164.559, 8.50497)
+shape = SubResource("CircleShape2D_agcgw")
