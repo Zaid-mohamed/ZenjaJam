@@ -1,8 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://di3i2rs6a58gy"]
+[gd_scene format=3 uid="uid://di3i2rs6a58gy"]
 
-[ext_resource type="Texture2D" path="res://for.png" id="1_4pujv"]
-
-[node name="Control" type="Control"]
+[node name="Credits" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +12,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 442.0
 offset_bottom = 278.0
+theme_override_font_sizes/font_size = 81
 text = "made by 
 
 developer 
@@ -32,5 +31,4 @@ zoom = Vector2(1.62, 1.62)
 z_index = -1
 position = Vector2(-22, -12)
 scale = Vector2(1.7975, 2.005)
-texture = ExtResource("1_4pujv")
 centered = false

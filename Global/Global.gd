@@ -1,11 +1,19 @@
 extends Node
 
+class_name global
 
-# Called when the node enters the scene tree for the first time.
+var anim
+
+
+
 func _ready():
-	pass # Replace with function body.
+	anim = get_node("/root/Global/AnimationPlayer")
+	add_to_group("global")
+func Open():
+	anim.play("OpenUp")
+	await anim.animation_finished
+func Close():
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	anim.play("Close")
+	await anim.animation_finished
+	

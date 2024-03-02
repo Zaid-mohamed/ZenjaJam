@@ -1,4 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwlpsrw8f5noa"]
+[gd_scene load_steps=6 format=3 uid="uid://dwlpsrw8f5noa"]
+
+[ext_resource type="Script" path="res://Global/global.gd" id="1_7risq"]
+
+[sub_resource type="Animation" id="Animation_jsdth"]
+resource_name = "Close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UpperBorder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -540), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BottomBorder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1080), Vector2(0, 540)]
+}
 
 [sub_resource type="Animation" id="Animation_oroem"]
 resource_name = "OpenUp"
@@ -55,34 +85,6 @@ tracks/1/keys = {
 "values": [Vector2(0, 540)]
 }
 
-[sub_resource type="Animation" id="Animation_jsdth"]
-resource_name = "Close"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UpperBorder:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -540), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BottomBorder:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 1080), Vector2(0, 540)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nhulg"]
 _data = {
 "Close": SubResource("Animation_jsdth"),
@@ -91,6 +93,7 @@ _data = {
 }
 
 [node name="Global" type="Node"]
+script = ExtResource("1_7risq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -100,7 +103,7 @@ libraries = {
 [node name="UpperBorder" type="ColorRect" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = 1980.0
+offset_right = 5940.0
 offset_bottom = 540.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
@@ -110,9 +113,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 540.0
-offset_right = 1980.0
-offset_bottom = 1080.0
+offset_top = -540.0
+offset_right = 5940.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
