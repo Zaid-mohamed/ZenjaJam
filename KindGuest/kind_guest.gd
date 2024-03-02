@@ -20,6 +20,9 @@ class_name Guest
 @export var StaringTimer : Timer
 
 @export var NavTimer : Timer
+
+@export var Anim : AnimationPlayer
+
 var state : states = states.GoingToCrystal : set = set_state
 
 var is_stared : bool
@@ -59,7 +62,7 @@ func _physics_process(delta):
 		states.Leaving:
 			move_to(exit, true)
 
-	
+	handle_animations()
 	if NavAgent.is_navigation_finished():
 		return
 	var next_path_position: Vector2 = NavAgent.get_next_path_position()
@@ -128,6 +131,11 @@ func staring_finished():
 	state = states.Leaving
 	
 
+func handle_animations():
+	if velocity == Vector2.ZERO:
+		Anim.play("Idle")
+	elif velocity != Vector2.ZERO:
+		Anim.play("Run")
 
 # navigation purposses
 
