@@ -9,14 +9,10 @@ size = Vector2(98, 74)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aopf6"]
 size = Vector2(120, 95)
 
-[node name="KindGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "NavTimer", "HitBox", "StaringTimer")]
+[node name="KindGuest" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_gsptv")
 StaringTime = 3.0
-NavAgent = NodePath("NavAgent")
-NavTimer = NodePath("NavTimer")
-HitBox = NodePath("HitBox")
-StaringTimer = NodePath("StaringTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -139)
@@ -40,12 +36,9 @@ wait_time = 0.5
 
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
-radius = 128.0
-neighbor_distance = 129.0
-max_speed = 200.0
+radius = 212.02
 
 [node name="NavObs" type="NavigationObstacle2D" parent="."]
-vertices = PackedVector2Array(-61, -35, 61, -35, 60, 62, -61, 62)
+vertices = PackedVector2Array(-60, -35, 60, -34, 61, 61, -60, 61)
 
 [connection signal="timeout" from="NavTimer" to="." method="actor_setup"]
-[connection signal="velocity_computed" from="NavAgent" to="." method="move"]

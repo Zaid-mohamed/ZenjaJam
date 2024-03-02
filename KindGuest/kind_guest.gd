@@ -1,34 +1,26 @@
 extends CharacterBody2D
 
 
-
-class_name Guest
-
-
 @export var Speed : float = 200.0
-
 @export var StaringTime : float 
 
 @onready var crysalPos : Vector2 = get_tree().get_first_node_in_group("crystal").global_position
-
 @onready var crystal : crystal = get_tree().get_first_node_in_group("crystal")
 
 @onready var Exits  = get_tree().get_nodes_in_group("Exit")
 
-@export var NavAgent : NavigationAgent2D
+@onready var NavAgent : NavigationAgent2D
 
-var NavTarget : Node2D
+@onready var HitBox : Area2D = get_node("HitBox")
 
-@export var NavTimer : Timer
+@onready var StaringTimer : Timer = get_node("StaringTimer")
 
-@export var HitBox : Area2D
-
-@export var StaringTimer : Timer
-
-@export var state : states = states.GoingToCrystal : set = set_state
+@onready var NavTimer : Timer = get_node("NavTimer")
+var state : states = states.GoingToCrystal : set = set_state
 
 var is_stared : bool
 
+var NavTarget : Node2D
 
 var exit : Vector2
 enum states {
@@ -71,12 +63,12 @@ func _physics_process(delta):
 	
 	new_velocity = new_velocity.normalized()
 	new_velocity = new_velocity * Speed
-	NavAgent.set_velocity(new_velocity)
+	velocity = new_velocity
 
-#this is a Navigation purpose too
-func move(Velocity):
-	velocity = Velocity
 	move_and_slide()
+
+
+
 
 
 
