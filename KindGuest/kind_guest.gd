@@ -11,6 +11,7 @@ class_name Guest
 @export var Speed : float = 200.0
 @export var StaringTime : float 
 @export var KnockBackForce : float
+@export var change_on_hope_level : float
 
 @export var NavAgent : NavigationAgent2D
 
@@ -116,7 +117,7 @@ func entered_an_area(area):
 		if !is_stared:
 			
 			state = states.Staring
-			crystal.hope_level += 10
+			crystal.hope_level += change_on_hope_level
 			StaringTimer.start()
 	if area.is_in_group("AttackArea"):
 		KnockBack()
@@ -142,7 +143,7 @@ func set_movement_target(target_position : Vector2):
 
 
 func KnockBack():
-	var KnockbackVector : Vector2 = -velocity.normalized()
+	var KnockbackVector : Vector2 = global_position.direction_to(player.global_position)
 	KnockbackVector = KnockbackVector * KnockBackForce
 	velocity = KnockbackVector
 	move_and_slide()

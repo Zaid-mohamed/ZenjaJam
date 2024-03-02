@@ -12,6 +12,8 @@ size = Vector2(120, 95)
 [node name="EvilGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "HitBox", "StaringTimer", "NavTimer")]
 collision_mask = 2
 script = ExtResource("1_3nksj")
+KnockBackForce = 200.0
+change_on_hope_level = -10.0
 NavAgent = NodePath("NavigationAgent2D")
 HitBox = NodePath("HitBox")
 StaringTimer = NodePath("StaringTimer")
