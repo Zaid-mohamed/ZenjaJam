@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://di3i2rs6a58gy"]
+
+[ext_resource type="Texture2D" path="res://for.png" id="1_4pujv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 442.0
+offset_bottom = 278.0
+text = "made by 
+
+developer 
+scorpiondev
+rod 
+art
+walx
+Thexking360
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(336, 189)
+zoom = Vector2(1.62, 1.62)
+
+[node name="For" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-22, -12)
+scale = Vector2(1.7975, 2.005)
+texture = ExtResource("1_4pujv")
+centered = false
