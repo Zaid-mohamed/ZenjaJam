@@ -1,11 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5wxh7o4v1ph8"]
+[gd_scene load_steps=8 format=3 uid="uid://b5wxh7o4v1ph8"]
 
 [ext_resource type="Script" path="res://Crystal/crysal.gd" id="1_n1bfd"]
+[ext_resource type="Texture2D" uid="uid://nj4fl08mh7lh" path="res://Crystal/Crystal.png" id="2_7fris"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ytjlf"]
-radius = 191.094
+radius = 28.0179
 
-[node name="crystal" type="Node2D" groups=["crystal"]]
+[sub_resource type="Animation" id="Animation_wo1gi"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_7p0uw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ks40i"]
+_data = {
+"Idle": SubResource("Animation_wo1gi"),
+"RESET": SubResource("Animation_7p0uw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86vh8"]
+radius = 14.0
+
+[node name="crystal" type="StaticBody2D" groups=["crystal"]]
 script = ExtResource("1_n1bfd")
 
 [node name="SafeZone" type="Area2D" parent="." groups=["safe_zone"]]
@@ -23,4 +64,20 @@ offset_bottom = 239.0
 text = "Hope : "
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-vertices = PackedVector2Array(9, -165, 42, -148, 80, -119, 108, -81, 131, -34, 134, 2, 134, 29, 124, 52, 112, 75, 90, 106, 80, 117, 65, 132, 11, 166, -23, 142, -74, 139, -114, 86, -130, 34, -143, -31, -130, -63, -109, -109, -72, -123, -25, -148)
+position = Vector2(0, -45)
+vertices = PackedVector2Array(-4, 24, 23, 35, 25, 46, 20, 52, 11, 61, 5, 57, -2, 51, -11, 50, -18, 53, -23, 48, -17, 43, -12, 40, -9, 32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7fris")
+offset = Vector2(0, -50)
+hframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ks40i")
+}
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_86vh8")

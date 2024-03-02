@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 class_name crystal
 var hope_level : int = 100 : set = set_hope_level

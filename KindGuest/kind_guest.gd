@@ -157,4 +157,4 @@ func KnockBack():
 	KnockbackVector = KnockbackVector * KnockBackForce
 	velocity = KnockbackVector
 	move_and_slide()
-	state = states.Leaving
+	state = states.Staring
