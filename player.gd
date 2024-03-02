@@ -1,29 +1,36 @@
 extends CharacterBody2D
 
-@export var speed = 400
+
+class_name player
+# Speed Acceleration and friction
+@export var Speed : float
+@export var Acc : float
+@export var Friction : float
 
 
+#children nodes
 
+@onready var Anim : AnimationPlayer = get_node("Anim")
 
 
 
 func _physics_process(delta):
-	if Input.is_action_pressed("dow"):
-		velocity.y =+ speed
-	elif Input.is_action_pressed("up"):
-		velocity.y =- speed
-	else:
-		velocity.y =0 
-	
-	if Input.is_action_pressed("rig"):
-		velocity.x =+ speed
-	elif Input.is_action_pressed("lef"):
-		velocity.x =- speed
-	else:
-		velocity.x =0 
-	
-	
-	
-	move_and_slide()
-	pass
+	movement()
+	handle_animations()
 
+
+func movement():
+	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	
+	if dir:
+		velocity.x = move_toward(velocity.x, dir.x * Speed, Acc * get_physics_process_delta_time())
+		velocity.y = move_toward(velocity.y, dir.y * Speed, Acc * get_physics_process_delta_time())
+	else:
+		velocity.x = move_toward(velocity.x, 0.0, Friction * get_physics_process_delta_time())
+		velocity.y = move_toward(velocity.y, 0.0, Friction * get_physics_process_delta_time())
+	move_and_slide()
+func handle_animations():
+	if velocity != Vector2.ZERO:
+		Anim.play("Run")
+	else:
+		Anim.play("Idle")

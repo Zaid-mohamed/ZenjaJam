@@ -1,84 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtpoijjyyatit"]
+[gd_scene load_steps=3 format=3 uid="uid://dtpoijjyyatit"]
 
-[ext_resource type="PackedScene" uid="uid://b5wxh7o4v1ph8" path="res://ForTesting/crysal.tscn" id="2_0i0dt"]
-[ext_resource type="PackedScene" uid="uid://b7fs6w655ff1s" path="res://GuestsSpawner/guest_spawner.tscn" id="3_8p0jk"]
-[ext_resource type="PackedScene" uid="uid://drlo3e6gsr7t8" path="res://GuestsSpawner/spawn_point.tscn" id="3_ry08q"]
-[ext_resource type="Texture2D" uid="uid://g315td2a22ix" path="res://Untitled.png" id="4_ikfff"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_22ocm"]
-vertices = PackedVector2Array(5556, 4817, -5104, 4829, -4742, -1528, -1648, -1986, 4663, -2554)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1649, -1996, 4672, -2565, 5568, 4827, -5115, 4840, -4752, -1537)])
-source_geometry_group_name = &"navigation_polygon_source_group"
+[ext_resource type="PackedScene" uid="uid://q4wa4amrqhd5" path="res://Player/PLAYER.tscn" id="1_txlrj"]
+[ext_resource type="Texture2D" uid="uid://chtndky7h0vde" path="res://icon.svg" id="2_8tx6d"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Crysal" parent="." instance=ExtResource("2_0i0dt")]
-position = Vector2(967, 579)
+[node name="Player" parent="." instance=ExtResource("1_txlrj")]
+Speed = 200.0
+Acc = 200.0
+Friction = 400.0
 
-[node name="Exits" type="Node2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(140, 11)
+texture = ExtResource("2_8tx6d")
 
-[node name="Exit" type="Marker2D" parent="Exits" groups=["Exit"]]
-position = Vector2(756, -286)
-
-[node name="Exit2" type="Marker2D" parent="Exits" groups=["Exit"]]
-position = Vector2(2471, -353)
-
-[node name="Exit3" type="Marker2D" parent="Exits" groups=["Exit"]]
-position = Vector2(2471, 599)
-
-[node name="Exit4" type="Marker2D" parent="Exits" groups=["Exit"]]
-position = Vector2(2229, 1667)
-
-[node name="Exit5" type="Marker2D" parent="Exits" groups=["Exit"]]
-position = Vector2(1030, 1687)
-
-[node name="Exit6" type="Marker2D" parent="Exits" groups=["Exit"]]
-position = Vector2(-159, 1516)
-
-[node name="Exit7" type="Marker2D" parent="Exits" groups=["Exit"]]
-position = Vector2(-366, 503)
-
-[node name="Exit8" type="Marker2D" parent="Exits" groups=["Exit"]]
-position = Vector2(-426, -353)
-
-[node name="SpawnPoints" type="Node2D" parent="."]
-
-[node name="SpawnPoint" parent="SpawnPoints" instance=ExtResource("3_ry08q")]
-position = Vector2(2694, -634)
-
-[node name="SpawnPoint2" parent="SpawnPoints" instance=ExtResource("3_ry08q")]
-position = Vector2(2772, 1333)
-
-[node name="SpawnPoint3" parent="SpawnPoints" instance=ExtResource("3_ry08q")]
-position = Vector2(-521, -627)
-
-[node name="SpawnPoint4" parent="SpawnPoints" instance=ExtResource("3_ry08q")]
-position = Vector2(-1070, 1932)
-
-[node name="SpawnPoint5" parent="SpawnPoints" instance=ExtResource("3_ry08q")]
-position = Vector2(847, -883)
-
-[node name="SpawnPoint6" parent="SpawnPoints" instance=ExtResource("3_ry08q")]
-position = Vector2(769, 2246)
-
-[node name="SpawnPoint7" parent="SpawnPoints" instance=ExtResource("3_ry08q")]
-position = Vector2(-1383, 635)
-
-[node name="SpawnPoint8" parent="SpawnPoints" instance=ExtResource("3_ry08q")]
-position = Vector2(3428, 542)
-
-[node name="GuestSpawner" parent="." instance=ExtResource("3_8p0jk")]
-
-<<<<<<< HEAD
-[node name="NavRegion" type="NavigationRegion2D" parent="."]
-visible = false
-navigation_polygon = SubResource("NavigationPolygon_ws7m1")
-
-[node name="Untitled" type="Sprite2D" parent="."]
-position = Vector2(553, 430)
-texture = ExtResource("4_ikfff")
-=======
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_22ocm")
->>>>>>> parent of 7374d6f (Merge branch 'main' into player)
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(-111, 14)
+texture = ExtResource("2_8tx6d")
