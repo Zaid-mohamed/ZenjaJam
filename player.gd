@@ -17,6 +17,8 @@ class_name player
 
 #
 @onready var global : global = get_node("/root/Global")
+
+var dir : Vector2
 func _ready():
 	if global:
 		global.Open()
@@ -28,7 +30,7 @@ func _physics_process(delta):
 	handle_attack()
 
 func movement():
-	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	dir = Input.get_vector("left", "right", "up", "down")
 	
 	if dir:
 		velocity.x = move_toward(velocity.x, dir.x * Speed, Acc * get_physics_process_delta_time())
@@ -38,18 +40,18 @@ func movement():
 		velocity.y = move_toward(velocity.y, 0.0, Friction * get_physics_process_delta_time())
 	move_and_slide()
 func handle_animations():
-	if velocity != Vector2.ZERO && CanMove:
+	if dir != Vector2.ZERO && CanMove:
 		Anim.play("Run")
-	elif velocity == Vector2.ZERO && CanMove:
+	elif dir == Vector2.ZERO && CanMove:
 		Anim.play("Idle")
 
 # Handles what direction the player will look to.
 func handle_flip_h():
-	if velocity.x > 0.0:
+	if dir.x > 0.0:
 		Sprite.flip_h = false
 		AttackArea.rotation_degrees = 0.0
 		
-	elif velocity.x < 0.0:
+	elif dir.x < 0.0:
 		Sprite.flip_h = true
 		AttackArea.rotation_degrees = 180.0
 func handle_attack():
