@@ -20,4 +20,3 @@ func change_scene(Scene : String):
 	Anim.play("Close")
 	await get_tree().create_timer(Anim.get_current_animation_length()).timeout
 	get_tree().change_scene_to_file(Scene)
-	Anim.play("OpenUp")

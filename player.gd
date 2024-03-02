@@ -15,8 +15,11 @@ class_name player
 @onready var Sprite : Sprite2D = get_node("Texture")
 @onready var AttackArea : Area2D = get_node("AttackArea")
 
-
-
+#
+@onready var global : global = get_node("/root/Global")
+func _ready():
+	if global:
+		global.Open()
 func _physics_process(delta):
 	if CanMove:
 		movement()
