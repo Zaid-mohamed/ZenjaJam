@@ -1,21 +1,24 @@
 extends CharacterBody2D
+	
 
-
-@export var Speed : float = 200.0
-@export var StaringTime : float 
+class_name Guest
 
 @onready var crysalPos : Vector2 = get_tree().get_first_node_in_group("crystal").global_position
 @onready var crystal : crystal = get_tree().get_first_node_in_group("crystal")
-
 @onready var Exits  = get_tree().get_nodes_in_group("Exit")
+@onready var player : player = get_tree().get_first_node_in_group("player")
 
-@onready var NavAgent : NavigationAgent2D
+@export var Speed : float = 200.0
+@export var StaringTime : float 
+@export var KnockBackForce : float
 
-@onready var HitBox : Area2D = get_node("HitBox")
+@export var NavAgent : NavigationAgent2D
 
-@onready var StaringTimer : Timer = get_node("StaringTimer")
+@export var HitBox : Area2D
 
-@onready var NavTimer : Timer = get_node("NavTimer")
+@export var StaringTimer : Timer
+
+@export var NavTimer : Timer
 var state : states = states.GoingToCrystal : set = set_state
 
 var is_stared : bool
@@ -115,7 +118,9 @@ func entered_an_area(area):
 			state = states.Staring
 			crystal.hope_level += 10
 			StaringTimer.start()
-			
+	if area.is_in_group("AttackArea"):
+		KnockBack()
+		
 
 # when staring timer finishes
 func staring_finished():
@@ -134,3 +139,10 @@ func actor_setup():
 	NavTimer.start()
 func set_movement_target(target_position : Vector2):
 	NavAgent.target_position = target_position
+
+
+func KnockBack():
+	var KnockbackVector : Vector2 = -velocity.normalized()
+	KnockbackVector = KnockbackVector * KnockBackForce
+	velocity = KnockbackVector
+	move_and_slide()

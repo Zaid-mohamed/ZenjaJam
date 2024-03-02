@@ -9,10 +9,16 @@ size = Vector2(98, 74)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aopf6"]
 size = Vector2(120, 95)
 
-[node name="KindGuest" type="CharacterBody2D"]
+[node name="KindGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "HitBox", "StaringTimer", "NavTimer")]
 collision_mask = 2
 script = ExtResource("1_gsptv")
+Speed = 50.0
 StaringTime = 3.0
+KnockBackForce = 200.0
+NavAgent = NodePath("NavAgent")
+HitBox = NodePath("HitBox")
+StaringTimer = NodePath("StaringTimer")
+NavTimer = NodePath("NavTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -139)

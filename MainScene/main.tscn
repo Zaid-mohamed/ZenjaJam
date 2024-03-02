@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtpoijjyyatit"]
+[gd_scene load_steps=7 format=3 uid="uid://dtpoijjyyatit"]
 
 [ext_resource type="PackedScene" uid="uid://q4wa4amrqhd5" path="res://Player/PLAYER.tscn" id="1_txlrj"]
+[ext_resource type="PackedScene" uid="uid://b5wxh7o4v1ph8" path="res://ForTesting/crysal.tscn" id="2_0i0dt"]
 [ext_resource type="Texture2D" uid="uid://chtndky7h0vde" path="res://icon.svg" id="2_8tx6d"]
+[ext_resource type="PackedScene" uid="uid://d0g4g87yc62gg" path="res://KindGuest/kind_guest.tscn" id="4_jeuir"]
+[ext_resource type="PackedScene" uid="uid://cgxglq6sksla" path="res://Exits/exit.tscn" id="5_e3o5r"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mw37y"]
+vertices = PackedVector2Array(600, -286, 712, 672, -440, 496, -638, -310)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-651, -321, 609, -296, 724, 685, -449, 506)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Main" type="Node2D"]
 
@@ -17,3 +26,41 @@ texture = ExtResource("2_8tx6d")
 [node name="Icon2" type="Sprite2D" parent="."]
 position = Vector2(-111, 14)
 texture = ExtResource("2_8tx6d")
+
+[node name="crystal" parent="." instance=ExtResource("2_0i0dt")]
+position = Vector2(20, 92)
+scale = Vector2(0.2, 0.2)
+
+[node name="KindGuest" parent="." instance=ExtResource("4_jeuir")]
+position = Vector2(204, 177)
+scale = Vector2(0.2, 0.2)
+
+[node name="KindGuest2" parent="." instance=ExtResource("4_jeuir")]
+position = Vector2(-194, 188)
+scale = Vector2(0.2, 0.2)
+
+[node name="KindGuest3" parent="." instance=ExtResource("4_jeuir")]
+position = Vector2(304, -88)
+scale = Vector2(0.2, 0.2)
+
+[node name="KindGuest4" parent="." instance=ExtResource("4_jeuir")]
+position = Vector2(-231, -77)
+scale = Vector2(0.2, 0.2)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_mw37y")
+
+[node name="Exit" parent="." instance=ExtResource("5_e3o5r")]
+position = Vector2(-156, -210)
+
+[node name="Exit2" parent="." instance=ExtResource("5_e3o5r")]
+position = Vector2(-468, -18)
+
+[node name="Exit3" parent="." instance=ExtResource("5_e3o5r")]
+position = Vector2(-406, 373)
+
+[node name="Exit4" parent="." instance=ExtResource("5_e3o5r")]
+position = Vector2(338, 507)
+
+[node name="Exit5" parent="." instance=ExtResource("5_e3o5r")]
+position = Vector2(629, -53)
