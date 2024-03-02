@@ -1,12 +1,12 @@
 extends Control
 
+@onready var Global  = get_node("/root/Global")
 
 
 
 func _on_play_pressed():
-	var Global  = get_node("/root/Global")
 	
-	Global.change_scene("res://menu.tscn")
+	Global.change_scene("res://MainScene/main.tscn")
 
 
 func _on_credits_pressed():
