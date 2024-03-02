@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dnvdbw6sk5x21"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_mskr6"]
-[ext_resource type="Texture2D" path="res://Player/PlayerSpriteSheet.png" id="2_xqmuy"]
+[ext_resource type="Texture2D" uid="uid://cgwumvkuct0be" path="res://Player/PlayerSpriteSheet.png" id="2_xqmuy"]
 
 [sub_resource type="Animation" id="Animation_5imic"]
 resource_name = "Attack"
