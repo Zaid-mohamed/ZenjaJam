@@ -1,16 +1,16 @@
 extends Control
 
 
-@onready var global :global = get_tree().get_first_node_in_group("global")
+
 
 func _on_play_pressed():
-	global.Close()
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://MainScene/main.tscn")
+	var Global  = get_node("/root/Global")
+	
+	Global.change_scene("res://menu.tscn")
 
 
 func _on_credits_pressed():
-	global.Close()
+	
 	await get_tree().create_timer(0.5).timeout
 	
 	get_tree().change_scene_to_file("res://Credits.tscn")
