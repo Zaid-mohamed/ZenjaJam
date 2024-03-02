@@ -11,13 +11,13 @@ class_name player
 #children nodes
 
 @onready var Anim : AnimationPlayer = get_node("Anim")
-
+@onready var Sprite : Sprite2D = get_node("Texture")
 
 
 func _physics_process(delta):
 	movement()
 	handle_animations()
-
+	handle_flip_h()
 
 func movement():
 	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -34,3 +34,10 @@ func handle_animations():
 		Anim.play("Run")
 	else:
 		Anim.play("Idle")
+
+# Handles what direction the player will look to.
+func handle_flip_h():
+	if velocity.x > 0.0:
+		Sprite.flip_h = false
+	elif velocity.x < 0.0:
+		Sprite.flip_h = true
