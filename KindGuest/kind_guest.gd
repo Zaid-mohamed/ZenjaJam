@@ -132,10 +132,12 @@ func staring_finished():
 	
 
 func handle_animations():
-	if velocity == Vector2.ZERO:
-		Anim.play("Idle")
-	elif velocity != Vector2.ZERO:
-		Anim.play("Run")
+	if Anim:
+		
+		if velocity == Vector2.ZERO:
+			Anim.play("Idle")
+		elif velocity != Vector2.ZERO:
+			Anim.play("Run")
 
 # navigation purposses
 
