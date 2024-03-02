@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dtpoijjyyatit"]
 
-[ext_resource type="PackedScene" path="res://Player/PLAYER.tscn" id="1_txlrj"]
+[ext_resource type="PackedScene" uid="uid://q4wa4amrqhd5" path="res://Player/PLAYER.tscn" id="1_txlrj"]
 [ext_resource type="PackedScene" uid="uid://b5wxh7o4v1ph8" path="res://ForTesting/crysal.tscn" id="2_0i0dt"]
 [ext_resource type="Texture2D" uid="uid://chtndky7h0vde" path="res://icon.svg" id="2_8tx6d"]
 [ext_resource type="PackedScene" uid="uid://d0g4g87yc62gg" path="res://KindGuest/kind_guest.tscn" id="4_jeuir"]
