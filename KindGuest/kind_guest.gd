@@ -23,6 +23,8 @@ class_name Guest
 
 @export var Anim : AnimationPlayer
 
+@export var Sprite : Sprite2D
+
 var state : states = states.GoingToCrystal : set = set_state
 
 var is_stared : bool
@@ -47,6 +49,8 @@ func _ready():
 	NavTarget = crystal
 	#get an exit
 	exit = get_an_exit()
+func handle_flip_h():
+	pass
 func set_up():
 	actor_setup()
 	# assign stare time to the wait time of staring timer

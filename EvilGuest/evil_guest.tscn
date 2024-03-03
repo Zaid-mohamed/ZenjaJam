@@ -105,6 +105,7 @@ _data = {
 [node name="EvilGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "HitBox", "StaringTimer", "NavTimer", "Anim")]
 collision_mask = 2
 script = ExtResource("1_3nksj")
+Speed = 50.0
 KnockBackForce = 200.0
 change_on_hope_level = -10.0
 NavAgent = NodePath("NavAgent")
@@ -114,11 +115,12 @@ NavTimer = NodePath("NavTimer")
 Anim = NodePath("Anim")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
 texture = ExtResource("2_8o0pc")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 8.5)
+position = Vector2(-1.5, -3.5)
 shape = SubResource("RectangleShape2D_nibt3")
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -132,9 +134,9 @@ shape = SubResource("RectangleShape2D_aopf6")
 
 [node name="Type" type="Label" parent="."]
 offset_left = -16.0
-offset_top = -389.0
+offset_top = -401.0
 offset_right = 24.0
-offset_bottom = -366.0
+offset_bottom = -378.0
 
 [node name="NavObs" type="NavigationObstacle2D" parent="."]
 visible = false

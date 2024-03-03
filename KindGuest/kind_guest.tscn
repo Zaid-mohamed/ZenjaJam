@@ -1,55 +1,108 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0g4g87yc62gg"]
+[gd_scene load_steps=10 format=3 uid="uid://d0g4g87yc62gg"]
 
 [ext_resource type="Script" path="res://KindGuest/kind_guest.gd" id="1_gsptv"]
 [ext_resource type="Texture2D" uid="uid://ci1jnyc4twsgv" path="res://KindGuest/SpriteSheet.png" id="2_ogi6v"]
-[ext_resource type="Texture2D" uid="uid://cv3wipe34hmny" path="res://KindGuest/SpriteSHeetRun.png" id="3_ocdth"]
+[ext_resource type="Texture2D" uid="uid://cv3wipe34hmny" path="res://KindGuest/SpriteSHeetRun.png" id="3_0dyu3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nibt3"]
-size = Vector2(98, 74)
+size = Vector2(9, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aopf6"]
-size = Vector2(120, 95)
+size = Vector2(11, 13)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5dxis"]
-atlas = ExtResource("2_ogi6v")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="Animation" id="Animation_opup6"]
+resource_name = "Idle"
+length = 0.75
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ogi6v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x4wso"]
-atlas = ExtResource("2_ogi6v")
-region = Rect2(64, 0, 64, 64)
+[sub_resource type="Animation" id="Animation_n8pbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ogi6v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1t5w5"]
-atlas = ExtResource("3_ocdth")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="Animation" id="Animation_jk5x7"]
+resource_name = "Run"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_0dyu3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ti3nl"]
-atlas = ExtResource("3_ocdth")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6sqwl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5dxis")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x4wso")
-}],
-"loop": true,
-"name": &"Idel",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1t5w5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ti3nl")
-}],
-"loop": true,
-"name": &"Run",
-"speed": 6.0
-}]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qprq8"]
+_data = {
+"Idle": SubResource("Animation_opup6"),
+"RESET": SubResource("Animation_n8pbs"),
+"Run": SubResource("Animation_jk5x7")
+}
 
 [node name="KindGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "HitBox", "StaringTimer", "NavTimer", "Anim")]
 collision_mask = 2
@@ -64,14 +117,20 @@ StaringTimer = NodePath("StaringTimer")
 NavTimer = NodePath("NavTimer")
 Anim = NodePath("AnimationPlayer")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("2_ogi6v")
+hframes = 2
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 14)
+position = Vector2(-2.5, -2.5)
 shape = SubResource("RectangleShape2D_nibt3")
 
 [node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0, -12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, 13.5)
+position = Vector2(-2.5, 9.5)
 shape = SubResource("RectangleShape2D_aopf6")
 
 [node name="StaringTimer" type="Timer" parent="."]
@@ -86,15 +145,13 @@ neighbor_distance = 129.0
 max_speed = 200.0
 
 [node name="NavObs" type="NavigationObstacle2D" parent="."]
+visible = false
 vertices = PackedVector2Array(-61, -35, 61, -35, 60, 62, -61, 62)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(10, -76)
-scale = Vector2(5.36719, 5.36719)
-sprite_frames = SubResource("SpriteFrames_6sqwl")
-animation = &"Run"
+libraries = {
+"": SubResource("AnimationLibrary_qprq8")
+}
 
 [connection signal="timeout" from="NavTimer" to="." method="actor_setup"]
 [connection signal="velocity_computed" from="NavAgent" to="." method="move"]

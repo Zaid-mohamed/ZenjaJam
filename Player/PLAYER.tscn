@@ -187,9 +187,9 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ujw7x")
-Speed = 300.0
-Acc = 500.0
-Friction = 1200.0
+Speed = 75.0
+Acc = 200.0
+Friction = 12000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
