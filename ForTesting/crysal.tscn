@@ -47,6 +47,7 @@ _data = {
 radius = 23.0868
 
 [node name="crystal" type="StaticBody2D" groups=["crystal"]]
+collision_layer = 3
 script = ExtResource("1_n1bfd")
 
 [node name="SafeZone" type="Area2D" parent="." groups=["safe_zone"]]

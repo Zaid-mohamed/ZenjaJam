@@ -69,7 +69,7 @@ func set_up():
 	StaringTimer.timeout.connect(staring_finished)
 	Set_up = true
 func _physics_process(delta):
-	if !Set_up:
+	if !Set_up && CanMove:
 		set_up()
 	# match the state to functions
 	match state:
@@ -144,6 +144,7 @@ func entered_an_area(area):
 			crystal.hope_level += change_on_hope_level
 			CanMove = false
 			StaringTimer.start()
+			velocity = Vector2.ZERO
 	if area.is_in_group("AttackArea"):
 		KnockBack()
 		
