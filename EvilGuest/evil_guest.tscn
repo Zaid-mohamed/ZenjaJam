@@ -102,7 +102,7 @@ _data = {
 "Run": SubResource("Animation_f81nc")
 }
 
-[node name="EvilGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "HitBox", "StaringTimer", "NavTimer", "Anim")]
+[node name="EvilGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "HitBox", "StaringTimer", "NavTimer", "Anim", "Sprite")]
 collision_mask = 2
 script = ExtResource("1_3nksj")
 Speed = 50.0
@@ -113,6 +113,7 @@ HitBox = NodePath("HitBox")
 StaringTimer = NodePath("StaringTimer")
 NavTimer = NodePath("NavTimer")
 Anim = NodePath("Anim")
+Sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
