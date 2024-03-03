@@ -140,7 +140,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mvpb2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -216,6 +216,6 @@ shape = SubResource("CapsuleShape2D_hu6of")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_12u34")
-animation = &"Idel"
+animation = &"Attack"
 autoplay = "Idel"
-frame_progress = 0.591784
+frame_progress = 0.28399

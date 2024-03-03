@@ -11,8 +11,8 @@ class_name player
 
 #children nodes
 
-@onready var Anim : AnimationPlayer = get_node("Anim")
-@onready var Sprite : AnimatedSprite2D = get_node("Texture")
+#@onready var Anim : AnimationPlayer = get_node("Anim")
+@onready var Sprite = $AnimatedSprite2D
 @onready var AttackArea : Area2D = get_node("AttackArea")
 
 #
@@ -41,9 +41,9 @@ func movement():
 	move_and_slide()
 func handle_animations():
 	if dir != Vector2.ZERO && CanMove:
-		Anim.play("Run")
+		$AnimatedSprite2D.play("Run")
 	elif dir == Vector2.ZERO && CanMove:
-		Anim.play("Idle")
+		$AnimatedSprite2D.play("Idle")
 
 # Handles what direction the player will look to.
 func handle_flip_h():
@@ -58,8 +58,8 @@ func handle_attack():
 	if Input.is_action_just_pressed("Attack"):
 		CanMove = false
 		velocity = Vector2.ZERO
-		Anim.play("Attack")
-		await Anim.animation_finished
+		$AnimatedSprite2D.play("Attack")
+		await $AnimatedSprite2D.animation_finished
 		CanMove = true
 		
 		
