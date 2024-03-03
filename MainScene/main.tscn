@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtpoijjyyatit"]
+[gd_scene load_steps=8 format=3 uid="uid://dtpoijjyyatit"]
 
 [ext_resource type="PackedScene" uid="uid://q4wa4amrqhd5" path="res://Player/PLAYER.tscn" id="1_txlrj"]
 [ext_resource type="TileSet" uid="uid://bpsii4gj17pab" path="res://MainScene/TileSet/TileSet.tres" id="1_yur0g"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b7fs6w655ff1s" path="res://GuestsSpawner/guest_spawner.tscn" id="5_bc7ld"]
 [ext_resource type="PackedScene" uid="uid://drlo3e6gsr7t8" path="res://GuestsSpawner/spawn_point.tscn" id="6_fnb47"]
 [ext_resource type="PackedScene" uid="uid://cgxglq6sksla" path="res://Exits/exit.tscn" id="6_ip5sh"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_16hg3"]
+vertices = PackedVector2Array(293, 240, -294, 238, -288, -188, 295, -188)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-298, -199, -305, 248, 303, 251, 306, -198)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
@@ -38,3 +44,6 @@ position = Vector2(273, -174)
 [node name="GuestSpawner" parent="." instance=ExtResource("5_bc7ld")]
 
 [node name="Exit" parent="." instance=ExtResource("6_ip5sh")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_16hg3")
