@@ -1,6 +1,6 @@
 extends Control
 
-@onready var Global  = get_node("/root/Global")
+
 
 
 

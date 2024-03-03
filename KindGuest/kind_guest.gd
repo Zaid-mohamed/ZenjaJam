@@ -1,6 +1,6 @@
 extends CharacterBody2D
-	
-#d
+
+
 class_name Guest
 
 @onready var crysalPos : Vector2 = get_tree().get_first_node_in_group("crystal").global_position

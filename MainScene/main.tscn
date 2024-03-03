@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7fs6w655ff1s" path="res://GuestsSpawner/guest_spawner.tscn" id="5_bc7ld"]
 [ext_resource type="PackedScene" uid="uid://drlo3e6gsr7t8" path="res://GuestsSpawner/spawn_point.tscn" id="6_fnb47"]
 
-[node name="Main" type="Node2D"]
+[node name="world" type="Node2D"]
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
