@@ -95,6 +95,8 @@ position = Vector2(10, -76)
 scale = Vector2(5.36719, 5.36719)
 sprite_frames = SubResource("SpriteFrames_6sqwl")
 animation = &"Idel"
+frame = 1
+frame_progress = 0.652298
 
 [connection signal="timeout" from="NavTimer" to="." method="actor_setup"]
 [connection signal="velocity_computed" from="NavAgent" to="." method="move"]

@@ -1,14 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cryy88nbngdfj"]
+[gd_scene load_steps=3 format=3 uid="uid://cryy88nbngdfj"]
 
-[ext_resource type="Texture2D" uid="uid://i47qqd55dlsl" path="res://for.png" id="1_4pujv"]
+[ext_resource type="Texture2D" uid="uid://crwtj1dppppw3" path="res://for.png" id="1_4pujv"]
+[ext_resource type="Script" path="res://control.gd" id="1_md0p6"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -460.0
+offset_bottom = -264.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_md0p6")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -24,13 +28,24 @@ walx
 Thexking360
 "
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(336, 189)
-zoom = Vector2(1.62, 1.62)
-
 [node name="For" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-22, -12)
-scale = Vector2(1.7975, 2.005)
+position = Vector2(-331, -178)
+scale = Vector2(3.39329, 3.785)
 texture = ExtResource("1_4pujv")
 centered = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_top = 162.0
+offset_right = 63.0
+offset_bottom = 187.0
+theme_override_colors/font_outline_color = Color(0, 0.0352941, 0.301961, 1)
+theme_override_constants/outline_size = 15
+text = "return"
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2(338, 189)
+zoom = Vector2(1.65, 1.65)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

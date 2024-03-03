@@ -12,11 +12,11 @@ class_name player
 #children nodes
 
 @onready var Anim : AnimationPlayer = get_node("Anim")
-@onready var Sprite : Sprite2D = get_node("Texture")
+@onready var Sprite : AnimatedSprite2D = get_node("Texture")
 @onready var AttackArea : Area2D = get_node("AttackArea")
 
 #
-@onready var global : global = get_node("/root/Global")
+@onready var global = get_node("/root/Global")
 
 var dir : Vector2
 func _ready():

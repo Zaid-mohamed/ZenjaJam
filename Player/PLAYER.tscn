@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://q4wa4amrqhd5"]
+[gd_scene load_steps=26 format=3 uid="uid://q4wa4amrqhd5"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ujw7x"]
 [ext_resource type="Texture2D" uid="uid://cgwumvkuct0be" path="res://Player/PlayerSpriteSheet.png" id="2_q30da"]
@@ -14,22 +14,10 @@ step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:frame")
+tracks/0/path = NodePath("AttackArea/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [43, 44, 45, 46]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AttackArea/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -41,40 +29,16 @@ resource_name = "Idle"
 length = 0.8
 loop_mode = 1
 step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
 
 [sub_resource type="Animation" id="Animation_fvt2r"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:frame")
+tracks/0/path = NodePath("AttackArea/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AttackArea/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -86,18 +50,6 @@ resource_name = "Run"
 length = 1.2
 loop_mode = 1
 step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [8, 9, 10, 11, 12, 13]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3tc7g"]
 _data = {
@@ -110,17 +62,134 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu6of"]
 radius = 9.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndloq"]
+atlas = ExtResource("2_q30da")
+region = Rect2(0, 259, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffaxw"]
+atlas = ExtResource("2_q30da")
+region = Rect2(50, 259, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5802"]
+atlas = ExtResource("2_q30da")
+region = Rect2(100, 259, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyn7d"]
+atlas = ExtResource("2_q30da")
+region = Rect2(150, 259, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvpb2"]
+atlas = ExtResource("2_q30da")
+region = Rect2(0, 222, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j0t7"]
+atlas = ExtResource("2_q30da")
+region = Rect2(0, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtugd"]
+atlas = ExtResource("2_q30da")
+region = Rect2(50, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urmrp"]
+atlas = ExtResource("2_q30da")
+region = Rect2(100, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5erao"]
+atlas = ExtResource("2_q30da")
+region = Rect2(150, 0, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68xcw"]
+atlas = ExtResource("2_q30da")
+region = Rect2(50, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh0ge"]
+atlas = ExtResource("2_q30da")
+region = Rect2(100, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2732b"]
+atlas = ExtResource("2_q30da")
+region = Rect2(150, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8sto"]
+atlas = ExtResource("2_q30da")
+region = Rect2(200, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k03wd"]
+atlas = ExtResource("2_q30da")
+region = Rect2(250, 37, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6pby"]
+atlas = ExtResource("2_q30da")
+region = Rect2(300, 37, 50, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_12u34"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndloq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffaxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5802")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyn7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvpb2")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j0t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtugd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urmrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5erao")
+}],
+"loop": true,
+"name": &"Idel",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68xcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh0ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2732b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8sto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k03wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6pby")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 6.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ujw7x")
 Speed = 300.0
 Acc = 500.0
 Friction = 1200.0
-
-[node name="Texture" type="Sprite2D" parent="."]
-position = Vector2(0, -13.5)
-texture = ExtResource("2_q30da")
-hframes = 7
-vframes = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -143,3 +212,10 @@ position = Vector2(0, -13.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(20, -2)
 shape = SubResource("CapsuleShape2D_hu6of")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_12u34")
+animation = &"Idel"
+autoplay = "Idel"
+frame_progress = 0.591784
