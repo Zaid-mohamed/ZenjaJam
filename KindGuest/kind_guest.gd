@@ -191,10 +191,11 @@ func set_movement_target(target_position : Vector2):
 func KnockBack():
 	var KnockbackVector : Vector2 = player.global_position.direction_to(global_position)
 	KnockbackVector = KnockbackVector.normalized() * KnockBackForce
+	CanMove = false
+	velocity = Vector2.ZERO
 	position += KnockbackVector
 	move_and_slide()
 	if Type == Types.Kind:
 		CRYSTAL.hope_level -= 30
 	await get_tree().create_timer(1).timeout
-	CanMove = false
 	StaringTimer.start()
