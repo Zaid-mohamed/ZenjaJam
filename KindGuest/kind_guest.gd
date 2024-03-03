@@ -94,7 +94,7 @@ func move_to(point: Vector2, is_leaving : bool = false):
 func get_an_exit() -> Vector2:
 	var random = RandomNumberGenerator.new()
 	
-	return Exits[random.randi_range(1, Exits.size() - 1)].global_position
+	return Exits[random.randi_range(1, Exits.size() - 1)].position
 
 
 

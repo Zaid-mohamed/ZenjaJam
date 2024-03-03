@@ -27,12 +27,12 @@ func spawn_kind_guest(GuestScene):
 	get_random_wait_time()
 	var random = RandomNumberGenerator.new()
 	
-	var SpawnPoint = SpawnPoints[random.randi_range(1, SpawnPoints.size() - 1)].global_position
+	var SpawnPoint = SpawnPoints[random.randi_range(1, SpawnPoints.size() - 1)].position
 	
 	var guest = GuestScene.instantiate()
 	
 	
-	guest.global_position = SpawnPoint
+	guest.position = SpawnPoint
 	
 	add_child(guest)
 
