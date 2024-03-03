@@ -30,6 +30,8 @@ var is_stared : bool
 var NavTarget : Node2D
 
 var exit : Vector2
+
+var Set_up : bool = false
 enum states {
 	GoingToCrystal,
 	Staring,
@@ -43,16 +45,20 @@ func _ready():
 	NavAgent.path_desired_distance = 4
 	NavAgent.target_desired_distance = 4
 	NavTarget = crystal
-	actor_setup()
 	#get an exit
 	exit = get_an_exit()
+func set_up():
+	actor_setup()
 	# assign stare time to the wait time of staring timer
 	StaringTimer.wait_time = StaringTime
 	#connect the area entered
 	HitBox.area_entered.connect(entered_an_area)
 	# connect staring timer timeout
 	StaringTimer.timeout.connect(staring_finished)
+	Set_up = true
 func _physics_process(delta):
+	if !Set_up:
+		set_up()
 	# match the state to functions
 	match state:
 		states.GoingToCrystal:
