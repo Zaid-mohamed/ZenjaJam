@@ -30,7 +30,7 @@ var state : states = states.GoingToCrystal : set = set_state
 
 var is_stared : bool = false
 
-var CanMove : bool = false
+var CanMove : bool = true
 
 var NavTarget : Node2D
 
