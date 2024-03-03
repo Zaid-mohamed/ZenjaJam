@@ -16,7 +16,7 @@ class_name player
 @onready var AttackArea : Area2D = get_node("AttackArea")
 
 #
-@onready var global  = get_node("/root/Global")
+@onready var global : global = get_node("/root/Global")
 
 var dir : Vector2
 func _ready():
