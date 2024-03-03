@@ -5,9 +5,9 @@ class_name player
 
 @export var CanMove : bool = true
 # Speed Acceleration and friction
-@export var Speed : float = 150
-@export var Acc : float = 300
-@export var Friction : float = 300
+@export var Speed : float
+@export var Acc : float
+@export var Friction : float
 @export var MaxSpeed : float
 
 
