@@ -5,7 +5,7 @@ class_name Guest
 
 @onready var crysalPos : Vector2 = get_tree().get_first_node_in_group("crystal").global_position
 @onready var crystal : crystal = get_tree().get_first_node_in_group("crystal")
-@onready var Exits  = get_tree().get_nodes_in_group("Exit")
+@onready var Exits  = get_tree().get_nodes_in_group("Exit")#"res://Exits/exit.tscn"
 @onready var player : player = get_tree().get_first_node_in_group("player")
 
 @export var Speed : float = 200.0
