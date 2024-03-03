@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtpoijjyyatit"]
+[gd_scene load_steps=6 format=3 uid="uid://dtpoijjyyatit"]
 
 [ext_resource type="PackedScene" uid="uid://q4wa4amrqhd5" path="res://Player/PLAYER.tscn" id="1_txlrj"]
 [ext_resource type="TileSet" uid="uid://bpsii4gj17pab" path="res://MainScene/TileSet/TileSet.tres" id="1_yur0g"]
 [ext_resource type="PackedScene" uid="uid://b5wxh7o4v1ph8" path="res://ForTesting/crysal.tscn" id="2_0i0dt"]
 [ext_resource type="PackedScene" uid="uid://b7fs6w655ff1s" path="res://GuestsSpawner/guest_spawner.tscn" id="5_bc7ld"]
 [ext_resource type="PackedScene" uid="uid://drlo3e6gsr7t8" path="res://GuestsSpawner/spawn_point.tscn" id="6_fnb47"]
-[ext_resource type="PackedScene" uid="uid://cgxglq6sksla" path="res://Exits/exit.tscn" id="6_ip5sh"]
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
@@ -36,5 +35,3 @@ position = Vector2(-262, -141)
 position = Vector2(273, -174)
 
 [node name="GuestSpawner" parent="." instance=ExtResource("5_bc7ld")]
-
-[node name="Exit" parent="." instance=ExtResource("6_ip5sh")]
