@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0g4g87yc62gg"]
+[gd_scene load_steps=11 format=3 uid="uid://d0g4g87yc62gg"]
 
 [ext_resource type="Script" path="res://KindGuest/kind_guest.gd" id="1_gsptv"]
 [ext_resource type="Texture2D" uid="uid://ci1jnyc4twsgv" path="res://KindGuest/SpriteSheet.png" id="2_ogi6v"]
+[ext_resource type="Texture2D" uid="uid://cv3wipe34hmny" path="res://KindGuest/SpriteSHeetRun.png" id="3_ocdth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nibt3"]
 size = Vector2(98, 74)
@@ -17,10 +18,12 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("2_ogi6v")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pjf1l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t5w5"]
+atlas = ExtResource("3_ocdth")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nrsfn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti3nl"]
+atlas = ExtResource("3_ocdth")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6sqwl"]
@@ -38,10 +41,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pjf1l")
+"texture": SubResource("AtlasTexture_1t5w5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nrsfn")
+"texture": SubResource("AtlasTexture_ti3nl")
 }],
 "loop": true,
 "name": &"Run",
@@ -92,7 +95,6 @@ position = Vector2(10, -76)
 scale = Vector2(5.36719, 5.36719)
 sprite_frames = SubResource("SpriteFrames_6sqwl")
 animation = &"Run"
-frame_progress = 0.935701
 
 [connection signal="timeout" from="NavTimer" to="." method="actor_setup"]
 [connection signal="velocity_computed" from="NavAgent" to="." method="move"]
