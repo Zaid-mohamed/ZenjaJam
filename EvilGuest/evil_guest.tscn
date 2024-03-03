@@ -103,6 +103,7 @@ _data = {
 }
 
 [node name="EvilGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "HitBox", "StaringTimer", "NavTimer", "Anim", "Sprite")]
+scale = Vector2(1.2, 1.2)
 collision_mask = 2
 script = ExtResource("1_3nksj")
 Speed = 50.0

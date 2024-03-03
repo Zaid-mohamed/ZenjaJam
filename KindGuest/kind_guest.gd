@@ -71,17 +71,6 @@ func set_up():
 func _physics_process(delta):
 	if !Set_up && CanMove:
 		set_up()
-	# match the state to functions
-	match state:
-		states.GoingToCrystal:
-			move_to(crysalPos)
-		states.Staring:
-			staring()
-		states.Leaving:
-			move_to(exit, true)
-
-	handle_animations()
-	
 	if CanMove:
 		
 		if NavAgent.is_navigation_finished():
@@ -94,6 +83,17 @@ func _physics_process(delta):
 		velocity = new_velocity
 	handle_flip_h()
 	move_and_slide()
+	# match the state to functions
+	match state:
+		states.GoingToCrystal:
+			move_to(crysalPos)
+		states.Staring:
+			staring()
+		states.Leaving:
+			move_to(exit, true)
+
+	handle_animations()
+	
 
 
 
