@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://def2f7yhnxsqe"]
+[gd_scene load_steps=3 format=3 uid="uid://def2f7yhnxsqe"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_4j0ac"]
+[ext_resource type="Texture2D" uid="uid://bpx6bwyq73dn0" path="res://21 1.png" id="2_n6syb"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -30,6 +31,11 @@ offset_bottom = -514.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.85686, 1.90969)
+
+[node name="211" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(520.233, 282.245)
+scale = Vector2(0.647935, 0.630011)
+texture = ExtResource("2_n6syb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2

@@ -1,6 +1,7 @@
 extends Node2D
 
-class_name global
+@onready var Global  = get_node("/root/Global")
+
 
 
 @onready var AnimScene = preload("res://Global/Trans.tscn")
