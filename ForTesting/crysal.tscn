@@ -44,7 +44,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_86vh8"]
-radius = 14.0
+radius = 23.0868
 
 [node name="crystal" type="StaticBody2D" groups=["crystal"]]
 script = ExtResource("1_n1bfd")
@@ -53,6 +53,7 @@ script = ExtResource("1_n1bfd")
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SafeZone"]
+position = Vector2(1, -4)
 shape = SubResource("CircleShape2D_ytjlf")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -79,5 +80,5 @@ libraries = {
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(1, -7)
 shape = SubResource("CircleShape2D_86vh8")
