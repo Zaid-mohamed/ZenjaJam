@@ -8,9 +8,10 @@ extends Control
 
 func _on_play_pressed():
 	
-	Global.change_scene("res://MainScene/main.tscn")
-	timer.start()
-	await timer.timeout
+	#Global.change_scene("res://MainScene/main.tscn")
+	#timer.start()
+	#await timer.timeout
+	#get_tree().change_scene_to_file("res://MainScene/main.tscn")
 	get_tree().change_scene_to_file("res://MainScene/main.tscn")
 	
 
