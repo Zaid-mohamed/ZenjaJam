@@ -11,9 +11,9 @@ func _on_Play_pressed():
 
 func _on_credits_pressed():
 	
-	await get_tree().create_timer(0.5).timeout
 	
-	get_tree().change_scene_to_file("res://Credits.tscn")
+	
+	get_tree().change_scene_to_file("res://control.tscn")
 
 
 func _on_exit_pressed():
