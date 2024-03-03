@@ -91,6 +91,8 @@ vertices = PackedVector2Array(-61, -35, 61, -35, 60, 62, -61, 62)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, -76)
+scale = Vector2(5.36719, 5.36719)
 sprite_frames = SubResource("SpriteFrames_6sqwl")
 animation = &"Idel"
 
