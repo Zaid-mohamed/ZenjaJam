@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://nj4fl08mh7lh" path="res://Crystal/Crystal.png" id="2_7fris"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ytjlf"]
-radius = 28.0179
+radius = 62.0322
 
 [sub_resource type="Animation" id="Animation_wo1gi"]
 resource_name = "Idle"
@@ -60,9 +60,11 @@ shape = SubResource("CircleShape2D_ytjlf")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HopeLabel" type="Label" parent="UI"]
-offset_top = 216.0
-offset_right = 54.0
-offset_bottom = 239.0
+offset_left = 826.0
+offset_top = 24.0
+offset_right = 1094.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 50
 text = "Hope :  100"
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]

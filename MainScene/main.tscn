@@ -59,5 +59,3 @@ position = Vector2(262, 121)
 position = Vector2(-170, 216)
 
 [node name="Player" parent="." instance=ExtResource("1_txlrj")]
-Acc = 150.0
-Friction = 75.0

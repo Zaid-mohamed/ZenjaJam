@@ -4,7 +4,7 @@ extends CharacterBody2D
 class_name Guest
 
 @onready var crysalPos : Vector2 = get_tree().get_first_node_in_group("crystal").global_position
-@onready var crystal : crystal = get_tree().get_first_node_in_group("crystal")
+@onready var CRYSTAL : crystal = get_tree().get_first_node_in_group("crystal")
 @onready var Exits  = get_tree().get_nodes_in_group("Exit")
 @onready var player : player = get_tree().get_first_node_in_group("player")
 
@@ -25,8 +25,10 @@ class_name Guest
 
 @export var Sprite : Sprite2D
 
-
+@export var Type : Types
 var state : states = states.GoingToCrystal : set = set_state
+
+
 
 var is_stared : bool = false
 
@@ -43,6 +45,10 @@ enum states {
 	Staring,
 	Leaving
 }
+enum Types {
+	Kind,
+	Evil
+}
 
 
 func _ready():
@@ -50,7 +56,7 @@ func _ready():
 	NavAgent = $NavAgent
 	NavAgent.path_desired_distance = 4
 	NavAgent.target_desired_distance = 4
-	NavTarget = crystal
+	NavTarget = CRYSTAL
 	#get an exit
 	exit = get_an_exit()
 func handle_flip_h():
@@ -143,7 +149,7 @@ func entered_an_area(area):
 		if !is_stared:
 			
 			state = states.Staring
-			crystal.hope_level += change_on_hope_level
+			CRYSTAL.hope_level += change_on_hope_level
 			CanMove = false
 			StaringTimer.start()
 			velocity = Vector2.ZERO
@@ -158,6 +164,7 @@ func exited_an_area(area):
 # when staring timer finishes
 func staring_finished():
 	state = states.Leaving
+	CanMove = true
 	
 
 func handle_animations():
@@ -182,8 +189,12 @@ func set_movement_target(target_position : Vector2):
 
 
 func KnockBack():
-	var KnockbackVector : Vector2 = global_position.direction_to(player.global_position)
-	KnockbackVector = KnockbackVector * KnockBackForce
-	velocity = KnockbackVector
+	var KnockbackVector : Vector2 = player.global_position.direction_to(global_position)
+	KnockbackVector = KnockbackVector.normalized() * KnockBackForce
+	position += KnockbackVector
 	move_and_slide()
-	state = states.Staring
+	if Type == Types.Kind:
+		CRYSTAL.hope_level -= 30
+	await get_tree().create_timer(1).timeout
+	CanMove = false
+	StaringTimer.start()
