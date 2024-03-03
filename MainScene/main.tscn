@@ -43,7 +43,19 @@ position = Vector2(273, -174)
 
 [node name="GuestSpawner" parent="." instance=ExtResource("5_bc7ld")]
 
-[node name="Exit" parent="." instance=ExtResource("6_ip5sh")]
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_16hg3")
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="Exit" parent="Exits" instance=ExtResource("6_ip5sh")]
+position = Vector2(-181, -158)
+
+[node name="Exit2" parent="Exits" instance=ExtResource("6_ip5sh")]
+position = Vector2(172, -158)
+
+[node name="Exit3" parent="Exits" instance=ExtResource("6_ip5sh")]
+position = Vector2(262, 121)
+
+[node name="Exit4" parent="Exits" instance=ExtResource("6_ip5sh")]
+position = Vector2(-170, 216)
