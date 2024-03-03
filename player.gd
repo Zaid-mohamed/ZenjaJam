@@ -28,7 +28,7 @@ func _physics_process(delta):
 	# set the get the hope level from the crystal
 	hope_level = Crystal.hope_level
 	# change the player speed according to the hope level
-	Speed = (Speed / hope_level) * 200
+	Speed = (Speed / hope_level) * Speed
 	if CanMove:
 		movement()
 	handle_animations()
