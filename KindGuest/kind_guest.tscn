@@ -104,7 +104,7 @@ _data = {
 "Run": SubResource("Animation_jk5x7")
 }
 
-[node name="KindGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "HitBox", "StaringTimer", "NavTimer", "Anim")]
+[node name="KindGuest" type="CharacterBody2D" node_paths=PackedStringArray("NavAgent", "HitBox", "StaringTimer", "NavTimer", "Anim", "Sprite")]
 collision_mask = 2
 script = ExtResource("1_gsptv")
 Speed = 50.0
@@ -116,6 +116,7 @@ HitBox = NodePath("HitBox")
 StaringTimer = NodePath("StaringTimer")
 NavTimer = NodePath("NavTimer")
 Anim = NodePath("AnimationPlayer")
+Sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)

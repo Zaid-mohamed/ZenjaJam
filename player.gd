@@ -8,6 +8,7 @@ class_name player
 @export var Speed : float = 150
 @export var Acc : float = 300
 @export var Friction : float = 300
+@export var MaxSpeed : float
 
 
 #children nodes
@@ -28,7 +29,7 @@ func _physics_process(delta):
 	# set the get the hope level from the crystal
 	hope_level = Crystal.hope_level
 	# change the player speed according to the hope level
-	Speed = (Speed / hope_level) * Speed
+	Speed = (hope_level / Speed) * MaxSpeed
 	if CanMove:
 		movement()
 	handle_animations()
