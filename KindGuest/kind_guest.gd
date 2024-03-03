@@ -26,6 +26,10 @@ class_name Guest
 @export var Sprite : Sprite2D
 
 @export var Type : Types
+
+@export var Knocked : bool = false
+
+
 var state : states = states.GoingToCrystal : set = set_state
 
 
@@ -146,7 +150,7 @@ func staring():
 # when enters an area
 func entered_an_area(area):
 	if area.is_in_group("safe_zone") && !is_stared:
-		if !is_stared:
+		if !is_stared && !Knocked:
 			
 			state = states.Staring
 			CRYSTAL.hope_level += change_on_hope_level
@@ -189,6 +193,7 @@ func set_movement_target(target_position : Vector2):
 
 
 func KnockBack():
+	Knocked = true
 	var KnockbackVector : Vector2 = player.global_position.direction_to(global_position)
 	KnockbackVector = KnockbackVector.normalized() * KnockBackForce
 	CanMove = false

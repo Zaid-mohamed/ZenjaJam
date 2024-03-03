@@ -10,7 +10,6 @@ class_name player
 @export var Friction : float
 @export var MaxSpeed : float
 
-
 #children nodes
 
 #@onready var Anim : AnimationPlayer = get_node("Anim")
