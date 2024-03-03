@@ -115,6 +115,7 @@ StaringTimer = NodePath("StaringTimer")
 NavTimer = NodePath("NavTimer")
 Anim = NodePath("Anim")
 Sprite = NodePath("Sprite2D")
+Type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
