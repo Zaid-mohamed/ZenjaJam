@@ -39,7 +39,7 @@ Artists:
 [node name="For" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(-331, -178)
-scale = Vector2(3.39329, 3.785)
+scale = Vector2(3.705, 4.095)
 texture = ExtResource("1_4pujv")
 centered = false
 
