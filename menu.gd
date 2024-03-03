@@ -4,9 +4,9 @@ extends Control
 
 
 
-func _on_play_pressed():
+func _on_Play_pressed():
 	
-	Global.change_scene("res://MainScene/main.tscn")
+	get_tree().change_scene("res://MainScene/main.tscn")
 
 
 func _on_credits_pressed():
