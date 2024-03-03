@@ -81,6 +81,8 @@ func _physics_process(delta):
 		new_velocity = new_velocity.normalized()
 		new_velocity = new_velocity * Speed
 		velocity = new_velocity
+	else:
+		velocity = Vector2.ZERO
 	handle_flip_h()
 	move_and_slide()
 	# match the state to functions
@@ -149,8 +151,7 @@ func entered_an_area(area):
 		KnockBack()
 		
 func exited_an_area(area):
-	if area.is_in_group("safe_zone") && is_stared:
-		if is_stared:
+	if area.is_in_group("safe_zone"):
 
 			CanMove = true
 
