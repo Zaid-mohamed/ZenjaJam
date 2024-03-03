@@ -25,15 +25,19 @@ class_name Guest
 
 @export var Sprite : Sprite2D
 
+
 var state : states = states.GoingToCrystal : set = set_state
 
-var is_stared : bool
+var is_stared : bool = false
+
+var CanMove : bool = false
 
 var NavTarget : Node2D
 
 var exit : Vector2
 
 var Set_up : bool = false
+
 enum states {
 	GoingToCrystal,
 	Staring,
@@ -50,13 +54,17 @@ func _ready():
 	#get an exit
 	exit = get_an_exit()
 func handle_flip_h():
-	pass
+	if velocity.x > 0.0:
+		Sprite.flip_h = false
+	elif velocity.x < 0.0:
+		Sprite.flip_h = true
 func set_up():
 	actor_setup()
 	# assign stare time to the wait time of staring timer
 	StaringTimer.wait_time = StaringTime
-	#connect the area entered
+	#connect the area entered and exited
 	HitBox.area_entered.connect(entered_an_area)
+	HitBox.area_entered.connect(exited_an_area)
 	# connect staring timer timeout
 	StaringTimer.timeout.connect(staring_finished)
 	Set_up = true
@@ -73,15 +81,18 @@ func _physics_process(delta):
 			move_to(exit, true)
 
 	handle_animations()
-	if NavAgent.is_navigation_finished():
-		return
-	var next_path_position: Vector2 = NavAgent.get_next_path_position()
-	var new_velocity = next_path_position - global_position
 	
-	new_velocity = new_velocity.normalized()
-	new_velocity = new_velocity * Speed
-	velocity = new_velocity
-
+	if CanMove:
+		
+		if NavAgent.is_navigation_finished():
+			return
+		var next_path_position: Vector2 = NavAgent.get_next_path_position()
+		var new_velocity = next_path_position - global_position
+	
+		new_velocity = new_velocity.normalized()
+		new_velocity = new_velocity * Speed
+		velocity = new_velocity
+	handle_flip_h()
 	move_and_slide()
 
 
@@ -131,6 +142,7 @@ func entered_an_area(area):
 			
 			state = states.Staring
 			crystal.hope_level += change_on_hope_level
+			CanMove = false
 			StaringTimer.start()
 	if area.is_in_group("AttackArea"):
 		KnockBack()
