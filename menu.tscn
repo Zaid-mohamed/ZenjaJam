@@ -1,7 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://def2f7yhnxsqe"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_4j0ac"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bpx6bwyq73dn0" path="res://21 1.png" id="2_n6syb"]
+=======
+[ext_resource type="Texture2D" uid="uid://dfvhef86pwx5k" path="res://21 1.png" id="2_n6syb"]
+>>>>>>> Stashed changes
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -33,7 +37,11 @@ grow_vertical = 2
 scale = Vector2(1.85686, 1.90969)
 
 [node name="211" type="Sprite2D" parent="MarginContainer"]
+<<<<<<< Updated upstream
 position = Vector2(520.233, 282.245)
+=======
+position = Vector2(543.39, 281.197)
+>>>>>>> Stashed changes
 scale = Vector2(0.647935, 0.630011)
 texture = ExtResource("2_n6syb")
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://d0g4g87yc62gg"]
 
 [ext_resource type="Script" path="res://KindGuest/kind_guest.gd" id="1_gsptv"]
-[ext_resource type="Texture2D" uid="uid://ci1jnyc4twsgv" path="res://KindGuest/SpriteSheet.png" id="2_ogi6v"]
-[ext_resource type="Texture2D" path="res://KindGuest/SpriteSHeetRun.png" id="3_ux2gv"]
+[ext_resource type="Texture2D" uid="uid://ci1jnyc4twsgv" path="res://KindGuest/SpriteSheet.png" id="2_ng1el"]
+[ext_resource type="Texture2D" uid="uid://w173rcpf2i6" path="res://KindGuest/SpriteSHeetRun.png" id="3_8uwqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nibt3"]
 size = Vector2(98, 74)
@@ -10,41 +10,41 @@ size = Vector2(98, 74)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aopf6"]
 size = Vector2(120, 95)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5dxis"]
-atlas = ExtResource("2_ogi6v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjdkm"]
+atlas = ExtResource("2_ng1el")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x4wso"]
-atlas = ExtResource("2_ogi6v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_12tkp"]
+atlas = ExtResource("2_ng1el")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pjf1l"]
-atlas = ExtResource("3_ux2gv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8jci"]
+atlas = ExtResource("3_8uwqi")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nrsfn"]
-atlas = ExtResource("3_ux2gv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnifk"]
+atlas = ExtResource("3_8uwqi")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6sqwl"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxth3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5dxis")
+"texture": SubResource("AtlasTexture_rjdkm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x4wso")
+"texture": SubResource("AtlasTexture_12tkp")
 }],
 "loop": true,
-"name": &"Idel",
+"name": &"Idle",
 "speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pjf1l")
+"texture": SubResource("AtlasTexture_h8jci")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nrsfn")
+"texture": SubResource("AtlasTexture_gnifk")
 }],
 "loop": true,
 "name": &"Run",
@@ -91,8 +91,12 @@ vertices = PackedVector2Array(-61, -35, 61, -35, 60, 62, -61, 62)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6sqwl")
-animation = &"Idel"
+texture_filter = 1
+position = Vector2(10, -41)
+scale = Vector2(5.82031, 5.82031)
+sprite_frames = SubResource("SpriteFrames_mxth3")
+animation = &"Idle"
+frame_progress = 0.195632
 
 [connection signal="timeout" from="NavTimer" to="." method="actor_setup"]
 [connection signal="velocity_computed" from="NavAgent" to="." method="move"]

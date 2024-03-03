@@ -3,7 +3,6 @@ extends Node2D
 @onready var Global  = get_node("/root/Global")
 
 
-
 @onready var AnimScene = preload("res://Global/Trans.tscn")
 
 var Anim : AnimationPlayer
