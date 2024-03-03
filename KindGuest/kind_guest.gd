@@ -39,15 +39,9 @@ enum states {
 
 func _ready():
 	# settings up the navigation
-
 	NavAgent = $NavAgent
 	NavAgent.path_desired_distance = 4.0
 	NavAgent.target_desired_distance = 4.0
-
-#	NavAgent = $NavAgent
-#	NavAgent.path_dsesired_distance = 4
-#	NavAgent.target_desired_distance = 4
-
 	NavTarget = crystal
 	actor_setup()
 	#get an exit
