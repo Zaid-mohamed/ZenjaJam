@@ -147,6 +147,11 @@ func entered_an_area(area):
 	if area.is_in_group("AttackArea"):
 		KnockBack()
 		
+func exited_an_area(area):
+	if area.is_in_group("safe_zone") && is_stared:
+		if is_stared:
+
+			CanMove = true
 
 # when staring timer finishes
 func staring_finished():
