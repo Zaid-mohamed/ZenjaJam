@@ -12,6 +12,7 @@ var EvilGuestScene = preload("res://EvilGuest/evil_guest.tscn")
 
 
 
+
 @onready var SpawnPoints = get_tree().get_nodes_in_group("SpawnPoint")
 
 @onready var SpawnTimer : Timer = get_node("SpawnTimer")

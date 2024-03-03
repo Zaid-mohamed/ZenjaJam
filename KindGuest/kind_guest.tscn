@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0g4g87yc62gg"]
+[gd_scene load_steps=10 format=3 uid="uid://d0g4g87yc62gg"]
 
 [ext_resource type="Script" path="res://KindGuest/kind_guest.gd" id="1_gsptv"]
 [ext_resource type="Texture2D" uid="uid://ci1jnyc4twsgv" path="res://KindGuest/SpriteSheet.png" id="2_ogi6v"]
-[ext_resource type="Texture2D" path="res://KindGuest/SpriteSHeetRun.png" id="3_ux2gv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nibt3"]
 size = Vector2(98, 74)
@@ -19,11 +18,9 @@ atlas = ExtResource("2_ogi6v")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjf1l"]
-atlas = ExtResource("3_ux2gv")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nrsfn"]
-atlas = ExtResource("3_ux2gv")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6sqwl"]

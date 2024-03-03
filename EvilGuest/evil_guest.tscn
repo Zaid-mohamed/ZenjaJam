@@ -136,7 +136,7 @@ visible = false
 radius = 30.0
 vertices = PackedVector2Array(-6, 1, 3, 1, 3, 16, -6, 16)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 128.0
 neighbor_distance = 129.0
