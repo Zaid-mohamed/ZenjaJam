@@ -108,7 +108,7 @@ _data = {
 scale = Vector2(1.2, 1.2)
 collision_mask = 2
 script = ExtResource("1_gsptv")
-Speed = 50.0
+Speed = 10.0
 StaringTime = 3.0
 KnockBackForce = 10.0
 change_on_hope_level = 10.0
@@ -142,13 +142,9 @@ wait_time = 0.5
 
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
-radius = 128.0
-neighbor_distance = 129.0
-max_speed = 200.0
-
-[node name="NavObs" type="NavigationObstacle2D" parent="."]
-visible = false
-vertices = PackedVector2Array(-61, -35, 61, -35, 60, 62, -61, 62)
+radius = 11.0
+neighbor_distance = 200.0
+max_speed = 10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

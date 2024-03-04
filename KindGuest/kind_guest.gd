@@ -8,7 +8,7 @@ class_name Guest
 @onready var Exits  = get_tree().get_nodes_in_group("Exit")
 @onready var player : player = get_tree().get_first_node_in_group("player")
 
-@export var Speed : float = 200.0
+@export var Speed : float
 @export var StaringTime : float 
 @export var KnockBackForce : float
 @export var change_on_hope_level : float
@@ -85,12 +85,9 @@ func _physics_process(delta):
 		
 		if NavAgent.is_navigation_finished():
 			return
-		var next_path_position: Vector2 = NavAgent.get_next_path_position()
-		var new_velocity = next_path_position - global_position
-	
-		new_velocity = new_velocity.normalized()
-		new_velocity = new_velocity * Speed
-		velocity = new_velocity
+		var axis = to_local(NavAgent.get_next_path_position()).normalized()
+		var inteneded_velocity = axis * Speed
+		NavAgent.set_velocity(inteneded_velocity)
 	else:
 		velocity = Vector2.ZERO
 	handle_flip_h()
@@ -164,7 +161,7 @@ func exited_an_area(area):
 	if area.is_in_group("safe_zone"):
 
 			CanMove = true
-
+	
 # when staring timer finishes
 func staring_finished():
 	state = states.Leaving
@@ -204,3 +201,6 @@ func KnockBack():
 		CRYSTAL.hope_level -= 30
 	await get_tree().create_timer(1).timeout
 	StaringTimer.start()
+func move(safe_velocity):
+	velocity = safe_velocity
+	move_and_slide()
